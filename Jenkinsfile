@@ -7,7 +7,7 @@ pipeline {
                 // Obtener código del repo
                 //git 'https://github.com/anieto-unir/helloworld.git'
 		script {
-			scmVars = checkout scm
+			scmVars = checkout scm  //se baja de donde esta conf el jenkinsfile
 			echo 'scm : the commit id is ' + scmVars.GIT_COMMIT
 		}
             }
@@ -36,7 +36,7 @@ pipeline {
                             set FLASK_APP=app\\api.py
                             set FLASK_ENV=development
                             start flask run
-                            start java -jar C:\\Unir\\Ejercicios\\wiremock\\wiremock-jre8-standalone-2.28.0.jar --port 9090 --root-dir C:\\Unir\\Ejercicios\\wiremock
+                            start java -jar C:\\Users\\jacky\\ExpertoUnir\\wiremock\\wiremock-jre8-standalone-2.32.0.jar --port 9091 --root-dir C:\\Users\\jacky\\ExpertoUnir\\wiremock
                             set PYTHONPATH=%WORKSPACE%
                             pytest --junitxml=result-rest.xml test\\rest
                         '''
